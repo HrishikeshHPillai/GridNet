@@ -7,8 +7,8 @@ import streamlit as st
 import random
 import tensorflow as tf
 
-load_model = tf.keras.models.load_model('/Users/hrishikeshhpillai/Documents/hrishi/deeplearning/gridai/forecasting/checkpoints/model_load1_100.h5')
-gen_model = tf.keras.models.load_model('/Users/hrishikeshhpillai/Documents/hrishi/deeplearning/gridai/forecasting/checkpoints/model_gen1_10_sigmoid_with_output_sigmoid.h5')
+load_model = tf.keras.models.load_model('/home/navneeth/EgoPro/dnn/GridNet/model/load_model.h5')
+gen_model = tf.keras.models.load_model('/home/navneeth/EgoPro/dnn/GridNet/model/gen_model.h5')
 
 
 
@@ -30,8 +30,8 @@ dataset_url ="../datasets/SolarPrediction2.csv"
 
 # df1 = get_data()
 
-load_X_test = pd.read_csv('/Users/hrishikeshhpillai/Documents/hrishi/deeplearning/gridai/forecasting/checkpoints/TestSets/load_X_test.csv', parse_dates=['Datetime'])
-gen_X_test = pd.read_csv('/Users/hrishikeshhpillai/Documents/hrishi/deeplearning/gridai/forecasting/checkpoints/TestSets/gen_X_test.csv', parse_dates=['datetime'])
+load_X_test = pd.read_csv('/home/navneeth/EgoPro/dnn/GridNet/Datasets/test/load_test.csv', parse_dates=['Datetime'])
+gen_X_test = pd.read_csv('/home/navneeth/EgoPro/dnn/GridNet/Datasets/test/gen_X_test.csv', parse_dates=['datetime'])
 DEMAND_MAX = 44736.048650000004
 RAD_MAX = 1601.26
 GRID = 0
@@ -174,6 +174,7 @@ with placeholder.container():
     c1, c2 = st.columns(2)
 
     with c1:
+        # Forecasted gen * area * solar panel efficiency
         st.markdown("#### Forecasted Generation")
         st.title(f":red[{round((gen_pred[0][0])*RAD_MAX)}]")
 
