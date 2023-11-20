@@ -6,7 +6,7 @@ __pycache__/
 # C extensions
 *.so
 
-
+logs
 model
 *.h5
 # Distribution / packaging
